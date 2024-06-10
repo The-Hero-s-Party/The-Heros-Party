@@ -24,7 +24,7 @@ public class webpage {
     Font button = new Font("Times New Roman", Font.PLAIN, 20);
     JButton startButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
-    int playerHP, monsterHP;
+    int playerHP, monsterHP, manaStone;
     String weapon, position;
 
 
@@ -275,12 +275,12 @@ public void playerAttack(){
     int playerDamage = 0;
 
 
-    //if(weapon.equals("Knife")){
+    if(weapon.equals("Knife")){
         //playerDamage = new java.util.Random().mixedInt(3);
-    //}
-    //else if (weapon.equals("Sword")){
-        //playerDamage = new java.util.Random().mixedInt(8);
-    //}
+    }
+    else if (weapon.equals("Sword")){
+        //playerDamage = new java.util.Random().mixedInt(10);
+    }
 
 
     mainTextArea.setText("You attacked the monster and did "+playerDamage + " damage");
@@ -294,10 +294,76 @@ public void playerAttack(){
     choice3.setText("");
     choice4.setText("");
 }
+public void monsterAttack(){
+    position = "monsterAttack";
 
 
+    int monsterDamage = 0;
 
 
+    //monsterDamage = new java.util.Random().mixedInt(4);
+
+
+    mainTextArea.setText("The dragon attacked you and you received " + monsterDamage + " damage.");
+
+
+    playerHP = playerHP - monsterDamage;
+    HPno.setText("" + playerHP);
+
+
+    choice1.setText(">");
+    choice2.setText("");
+    choice3.setText("");
+    choice4.setText("");
+}
+
+
+public void win(){
+    position = "win";
+
+
+    mainTextArea.setText("You defeated the dragon!\nThe dragon dropped a mana stone. \n\n(You obtained a mana stone)");
+
+
+    manaStone = 1;
+
+
+    choice1.setText("Go East");
+    choice2.setText("");
+    choice3.setText("");
+    choice4.setText("");
+}
+public void base(){
+    position = "base";
+
+
+    mainTextArea.setText("You are dead. \n\n<GAME OVER>");
+   
+    choice1.setText(">");
+    choice2.setText("");
+    choice3.setText("");
+    choice4.setText("");
+    choice1.setVisible(false);
+    choice2.setVisible(false);
+    choice3.setVisible(false);
+    choice4.setVisible(false);
+}
+public void ending(){
+    position = "ending";
+
+
+    mainTextArea.setText("Guard: Oh you killed the dragon? Thank you so much! You are a hero! \nWelcome to the town! \n\nTHE END");
+
+
+    choice1.setText(">");
+    choice2.setText("");
+    choice3.setText("");
+    choice4.setText("");
+    choice1.setVisible(false);
+    choice2.setVisible(false);
+    choice3.setVisible(false);
+    choice4.setVisible(false);
+}
 
 
     public class TitleScreen implements ActionListener{
@@ -323,7 +389,14 @@ public void playerAttack(){
             switch(position){
             case "townGate":
                 switch(playerChoice){
-                case "c1": talkGuard(); break;
+                case "c1":
+                    if (manaStone==1){
+                        ending();
+                    }
+                    else{
+                        talkGuard();
+                    }
+                    break;
                 case "c2": attackGuard(); break;
                 case "c3": crossRoad(); break;
                 }
@@ -367,7 +440,36 @@ public void playerAttack(){
                 case "c1": playerAttack(); break;
                 case "c2": crossRoad(); break;
                 }
-           
+                break;
+            case "playerAttack":
+                switch(playerChoice){
+                case "c1":
+                    if (monsterHP<1){
+                        win();
+                    }
+                    else{
+                        monsterAttack();
+                    }
+                    break;
+                }
+                break;
+            case "monsterAttack":
+                switch(playerChoice){
+                case "c1":
+                    if (playerHP<1) {
+                        base();
+                    }
+                    else{
+                        fight();
+                    }
+                    break;
+                }
+                break;
+            case "win":
+                switch(playerChoice){
+                case "c1": crossRoad();
+                }
+                break;  
        
         }
     }
