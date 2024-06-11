@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 
-public class webpage {
+public class Webpage {
 
 
     JFrame window;
@@ -37,13 +37,14 @@ public class webpage {
     public static void main(String[] args) throws Exception {
 
 
-        new webpage();
+        new Webpage();
     }
 
 
-    public webpage(){
+    public Webpage(){
 
 
+            //customize webpage window
             window = new JFrame();
             window.setSize(360,640);
             window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,7 +65,7 @@ public class webpage {
             startbuttonPanel = new JPanel();
             startbuttonPanel.setBounds(125,350,100,50);
             startbuttonPanel.setBackground(Color.blue);
-           
+
             startButton = new JButton("START");
             startButton.setBackground(Color.black);
             startButton.setForeground(Color.white);
@@ -274,7 +275,7 @@ public void playerAttack(){
 
     int playerDamage = 0;
 
-
+//unsure how mixedInt works
     if(weapon.equals("Knife")){
         //playerDamage = new java.util.Random().mixedInt(3);
     }
