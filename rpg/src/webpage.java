@@ -44,15 +44,18 @@ public class Webpage {
     public Webpage(){
 
 
-            //customize webpage window
+            //creates window and customize the size
             window = new JFrame();
             window.setSize(360,640);
+            //allows window to be closed properly
             window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            //set background colour
             window.getContentPane().setBackground(Color.black);
+            //disable defaultlayout of window
             window.setLayout(null);
+            //allows us to see the window
             window.setVisible(true);
             con = window.getContentPane();
-
 
             gametitle = new JPanel();
             gametitle.setBounds(20,100,300,75);
