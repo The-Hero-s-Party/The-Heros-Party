@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -57,10 +58,12 @@ public class Webpage {
             window.setVisible(true);
             con = window.getContentPane();
 
+            //add title and position it at a specfic point on the window
             gametitle = new JPanel();
             gametitle.setBounds(20,100,300,75);
             gametitle.setBackground(Color.blue);
-            Hero = new JLabel("The Hero's Party");
+            con.add(gametitle);
+            Hero = new JLabel("The Hero's Party"); 
             Hero.setForeground(Color.white);
             Hero.setFont(titleFont);
 
