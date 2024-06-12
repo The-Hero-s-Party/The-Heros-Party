@@ -32,7 +32,8 @@ public class Webpage {
     TitleScreen gameHandler = new TitleScreen();
     choiceHandler choiceHandler = new choiceHandler();
 
-
+    //I need to cook up an image for the logo
+    //ImageIcon logo = new ImageIcon("");
 
 
     public static void main(String[] args) throws Exception {
@@ -54,8 +55,7 @@ public class Webpage {
             window.getContentPane().setBackground(Color.black);
             //disable defaultlayout of window
             window.setLayout(null);
-            //allows us to see the window
-            window.setVisible(true);
+            //window.setIconImage(logo.getImage());
             con = window.getContentPane();
 
             //add title and position it at a specfic point on the window
@@ -77,6 +77,7 @@ public class Webpage {
             startButton.setForeground(Color.white);
             startButton.setFont(button);
             startButton.addActionListener(gameHandler);
+            startButton.setFocusPainted(false);
 
 
 
@@ -87,37 +88,45 @@ public class Webpage {
 
             con.add(gametitle);
             con.add(startbuttonPanel);
+
+            //allows user to see the window
+            window.setVisible(true);
     }
 
 
     public void createGameScreen(){
 
-
         gametitle.setVisible(false);
         startbuttonPanel.setVisible(false);
 
-
+        //create dialog text box and positions it
         mainText = new JPanel();
         mainText.setBounds(20,150,300,150);
         mainText.setBackground(Color.pink);
         con.add(mainText);
 
-
-        mainTextArea = new JTextArea();
+            //testing what this box does
+        mainTextArea = new JTextArea("Main text? Where does this show up?!");
         mainTextArea.setBounds(30,150,290,100);
         mainTextArea.setBackground(Color.green);
         mainTextArea.setForeground(Color.white);
         mainTextArea.setFont(button);
         mainTextArea.setLineWrap(true);
+        mainTextArea.setWrapStyleWord(true);
+        mainTextArea.setEditable(false);
+
+
         mainText.add(mainTextArea);
 
 
         choiceBoard = new JPanel();
         choiceBoard.setBounds(75,400,200,250);
         choiceBoard.setBackground(Color.red);
+            //test, what does this do?
+        choiceBoard.setLayout(new GridLayout(4,1));
         con.add(choiceBoard);
 
-
+        //create choice 1 button
         choice1 = new JButton("Choice 1");
         choice1.setBackground(Color.black);
         choice1.setForeground(Color.white);
@@ -125,6 +134,8 @@ public class Webpage {
         choice1.addActionListener(choiceHandler);
         choice1.setActionCommand("c1");
         choiceBoard.add(choice1);
+
+        //create choice 2 button
         choice2 = new JButton("Choice 2");
         choice2.setBackground(Color.black);
         choice2.setForeground(Color.white);
@@ -132,6 +143,8 @@ public class Webpage {
         choice2.addActionListener(choiceHandler);
         choice2.setActionCommand("c2");
         choiceBoard.add(choice2);
+
+        //create choice 3 button
         choice3 = new JButton("Choice 3");
         choice3.setBackground(Color.black);
         choice3.setForeground(Color.white);
@@ -139,6 +152,8 @@ public class Webpage {
         choice3.addActionListener(choiceHandler);
         choice3.setActionCommand("c3");
         choiceBoard.add(choice3);
+
+        //create choice 4 button
         choice4 = new JButton("Choice 3");
         choice4.setBackground(Color.black);
         choice4.setForeground(Color.white);
