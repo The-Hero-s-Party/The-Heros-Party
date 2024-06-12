@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-import javax.swing.ImageIcon;
+//I'll figure the icon thing out later
+//import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -520,6 +521,5 @@ public void ending(){
     }
 
 
-       
-}
+    }
 }
