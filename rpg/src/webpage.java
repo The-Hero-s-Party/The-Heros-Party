@@ -131,6 +131,7 @@ public class Webpage {
         choice1.setBackground(Color.black);
         choice1.setForeground(Color.white);
         choice1.setFont(button);
+        choice1.setFocusPainted(false);
         choice1.addActionListener(choiceHandler);
         choice1.setActionCommand("c1");
         choiceBoard.add(choice1);
@@ -140,6 +141,7 @@ public class Webpage {
         choice2.setBackground(Color.black);
         choice2.setForeground(Color.white);
         choice2.setFont(button);
+        choice2.setFocusPainted(false);
         choice2.addActionListener(choiceHandler);
         choice2.setActionCommand("c2");
         choiceBoard.add(choice2);
@@ -149,6 +151,7 @@ public class Webpage {
         choice3.setBackground(Color.black);
         choice3.setForeground(Color.white);
         choice3.setFont(button);
+        choice3.setFocusPainted(false);
         choice3.addActionListener(choiceHandler);
         choice3.setActionCommand("c3");
         choiceBoard.add(choice3);
@@ -158,7 +161,10 @@ public class Webpage {
         choice4.setBackground(Color.black);
         choice4.setForeground(Color.white);
         choice4.setFont(button);
+        choice4.setFocusPainted(false);
         choice4.addActionListener(choiceHandler);
+        //Disables highlighting on press
+        choice4.setContentAreaFilled(false);
         choice4.setActionCommand("c4");
         choiceBoard.add(choice4);
 
@@ -179,6 +185,8 @@ public class Webpage {
         Weapon = new JLabel("Weapon:");
         Weapon.setFont(button);
         Weapon.setForeground(Color.white);
+            //TESTING TESTING
+        Weapon.setBackground(Color.red);
         player.add(Weapon);
         WeaponName = new JLabel();
         WeaponName.setFont(button);
@@ -201,7 +209,7 @@ public void playerSetup(){
     monsterHP = 20;
     weapon = "  knife";
     WeaponName.setText(weapon);
-    HPno.setText(""+playerHP);
+    HPno.setText("" + playerHP);
 
 
     townGate();
@@ -212,14 +220,14 @@ public void townGate(){
     position = "townGate";
     mainTextArea.setText("You are at the gate of the town. \nA guard is standing in front of you. \n\nWhat will you do?");
 
-
+    //presents button options player can interact with
     choice1.setText("Talk to the guard");
     choice2.setText("Attack the guard");
     choice3.setText("Leave");
     choice4.setText("");
 }
 
-
+//talk to the guard route
 public void talkGuard(){
     position = "talkGuard";
     mainTextArea.setText("Guard: Hello stranger. I haven't seen your face before. \nI'm sorry, but you have to leave.");
@@ -228,29 +236,39 @@ public void talkGuard(){
     choice3.setText("");
     choice4.setText("");
 }
+
+//attack guard route
 public void attackGuard(){
     position = "attackGuard";
     mainTextArea.setText("Guard: Hey don't be stupid! \n\nThe guard fought back and you recieved 2 damage.");
+    //removes 2 HP from player's health
     playerHP = playerHP - 2;
-    HPno.setText(""+ playerHP);
+    HPno.setText("" + playerHP);
     choice1.setText(">");
     choice2.setText("");
     choice3.setText("");
     choice4.setText("");
 }
+
+//leave route
 public void crossRoad(){
     position = "crossRoad";
     mainTextArea.setText("You are at an intersection. \nIf you go left, you will back to the town.");
+    //presents 4 directions the player can choose to explore
     choice1.setText("Go North");
     choice2.setText("Go East");
     choice3.setText("Go South");
     choice4.setText("Go West");
 }
+
+//north route
 public void north(){
     position = "north";
     mainTextArea.setText("There is a river. \nYou drink the water and rest. \n\n(Your HP has recovered by 1)");
+    //adds 1 HP to player's health 
     playerHP = playerHP + 1;
     HPno.setText(""+ playerHP);
+    //forces player to go back to the crossroads
     choice1.setText("Go South");
     choice2.setText("");
     choice3.setText("");
@@ -258,9 +276,12 @@ public void north(){
 
 
 }
+
+//east route
 public void east(){
     position = "east";
     mainTextArea.setText("You walked into a forest and found a sword. \nYou obtained a sword.");
+    //changes player's weapon from knife to sword
     weapon = "Sword";
     WeaponName.setText(weapon);
     choice1.setText("Go West");
@@ -270,10 +291,10 @@ public void east(){
 
 
 }
-public void south(){
+//what if I remove this?
+//public void south(){}
 
 
-}
 public void west(){
     position = "west";
     mainTextArea.setText("You encounter a dragon!");
