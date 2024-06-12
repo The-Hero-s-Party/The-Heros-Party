@@ -268,7 +268,7 @@ public void north(){
     //adds 1 HP to player's health 
     playerHP = playerHP + 1;
     HPno.setText(""+ playerHP);
-    //forces player to go back to the crossroads
+    //forces player to return to the crossroads
     choice1.setText("Go South");
     choice2.setText("");
     choice3.setText("");
@@ -284,6 +284,7 @@ public void east(){
     //changes player's weapon from knife to sword
     weapon = "Sword";
     WeaponName.setText(weapon);
+    //forces player to return to the crossroads
     choice1.setText("Go West");
     choice2.setText("");
     choice3.setText("");
@@ -291,20 +292,21 @@ public void east(){
 
 
 }
-//what if I remove this?
-//public void south(){}
 
-
+//west route
 public void west(){
     position = "west";
     mainTextArea.setText("You encounter a dragon!");
+    //player chooses to run or fight
     choice1.setText("Fight");
     choice2.setText("Run");
     choice3.setText("");
     choice4.setText("");
 }
+
+//fight dragon route
 public void fight(){
-    position = "Fight";
+    position = "fight";
     mainTextArea.setText("Monster HP: "+ monsterHP +"\n\nWhat are you going to do?");
     choice1.setText("Attack");
     choice2.setText("Run");
@@ -317,18 +319,18 @@ public void playerAttack(){
 
     int playerDamage = 0;
 
-//unsure how mixedInt works
+    //randomizes damage player inflicts on dragon. The sword does more damage than the knife
     if(weapon.equals("Knife")){
-        //playerDamage = new java.util.Random().mixedInt(3);
+        playerDamage = new java.util.Random().nextInt(3);
     }
     else if (weapon.equals("Sword")){
-        //playerDamage = new java.util.Random().mixedInt(10);
+        playerDamage = new java.util.Random().nextInt(10);
     }
 
 
-    mainTextArea.setText("You attacked the monster and did "+playerDamage + " damage");
+    mainTextArea.setText("You attacked the monster and did " + playerDamage + " damage!");
 
-
+    //update dragon's HP after player attacks
     monsterHP = monsterHP - playerDamage;
 
 
@@ -343,13 +345,13 @@ public void monsterAttack(){
 
     int monsterDamage = 0;
 
-
-    //monsterDamage = new java.util.Random().mixedInt(4);
-
-
-    mainTextArea.setText("The dragon attacked you and you received " + monsterDamage + " damage.");
+    //randomize the damage dragon inflicts on player
+    monsterDamage = new java.util.Random().nextInt(4);
 
 
+    mainTextArea.setText("The dragon attacked you and you received " + monsterDamage + " damage!");
+
+    //updates player's health after dragon attacks
     playerHP = playerHP - monsterDamage;
     HPno.setText("" + playerHP);
 
@@ -381,7 +383,7 @@ public void base(){
 
 
     mainTextArea.setText("You are dead. \n\n<GAME OVER>");
-   
+
     choice1.setText(">");
     choice2.setText("");
     choice3.setText("");
@@ -513,7 +515,7 @@ public void ending(){
                 case "c1": crossRoad();
                 }
                 break;  
-       
+
         }
     }
 
