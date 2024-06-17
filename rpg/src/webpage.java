@@ -62,7 +62,7 @@ public class Webpage {
             //add title and position it at a specfic point on the window
             gametitle = new JPanel();
             gametitle.setBounds(20,100,300,75);
-            gametitle.setBackground(Color.blue);
+            gametitle.setBackground(new Color(0,114,178));
             con.add(gametitle);
             Hero = new JLabel("The Hero's Party"); 
             Hero.setForeground(Color.white);
@@ -71,11 +71,11 @@ public class Webpage {
 
             startbuttonPanel = new JPanel();
             startbuttonPanel.setBounds(125,350,100,50);
-            startbuttonPanel.setBackground(Color.blue);
+            startbuttonPanel.setBackground(new Color (86,180,233));
 
             startButton = new JButton("START");
-            startButton.setBackground(Color.black);
-            startButton.setForeground(Color.white);
+            startButton.setBackground(new Color (240,228,66));
+            startButton.setForeground(Color.black);
             startButton.setFont(button);
             startButton.addActionListener(gameHandler);
             startButton.setFocusPainted(false);
@@ -103,13 +103,13 @@ public class Webpage {
         //create dialog text box and positions it
         mainText = new JPanel();
         mainText.setBounds(20,150,300,150);
-        mainText.setBackground(Color.pink);
+        mainText.setBackground(new Color(0,158,115));
         con.add(mainText);
 
             //testing what this box does
         mainTextArea = new JTextArea("Main text? Where does this show up?!");
         mainTextArea.setBounds(30,150,290,100);
-        mainTextArea.setBackground(Color.green);
+        mainTextArea.setBackground(new Color (86,180,233));
         mainTextArea.setForeground(Color.white);
         mainTextArea.setFont(button);
         mainTextArea.setLineWrap(true);
@@ -122,14 +122,14 @@ public class Webpage {
 
         choiceBoard = new JPanel();
         choiceBoard.setBounds(75,400,200,250);
-        choiceBoard.setBackground(Color.red);
+        choiceBoard.setBackground(new Color(213,94,0));
             //test, what does this do?
         choiceBoard.setLayout(new GridLayout(4,1));
         con.add(choiceBoard);
 
         //create choice 1 button
         choice1 = new JButton("Choice 1");
-        choice1.setBackground(Color.black);
+        choice1.setBackground(new Color(204,121,167));
         choice1.setForeground(Color.white);
         choice1.setFont(button);
         choice1.setFocusPainted(false);
@@ -139,7 +139,7 @@ public class Webpage {
 
         //create choice 2 button
         choice2 = new JButton("Choice 2");
-        choice2.setBackground(Color.black);
+        choice2.setBackground(new Color(204,121,167));
         choice2.setForeground(Color.white);
         choice2.setFont(button);
         choice2.setFocusPainted(false);
@@ -149,7 +149,7 @@ public class Webpage {
 
         //create choice 3 button
         choice3 = new JButton("Choice 3");
-        choice3.setBackground(Color.black);
+        choice3.setBackground(new Color(204,121,167));
         choice3.setForeground(Color.white);
         choice3.setFont(button);
         choice3.setFocusPainted(false);
@@ -159,7 +159,7 @@ public class Webpage {
 
         //create choice 4 button
         choice4 = new JButton("Choice 3");
-        choice4.setBackground(Color.black);
+        choice4.setBackground(new Color(204,121,167));
         choice4.setForeground(Color.white);
         choice4.setFont(button);
         choice4.setFocusPainted(false);
@@ -172,7 +172,7 @@ public class Webpage {
 
         player = new JPanel();
         player.setBounds(2,70,338,60);
-        player.setBackground(Color.blue);
+        player.setBackground(new Color(0,114,178));
         player.setLayout(new GridLayout(1,4));
         con.add(player);
         HP = new JLabel("HP:");
