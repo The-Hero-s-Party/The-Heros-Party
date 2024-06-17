@@ -254,7 +254,7 @@ public void attackGuard(){
 //leave route
 public void crossRoad(){
     position = "crossRoad";
-    mainTextArea.setText("You are at an intersection. \nIf you go left, you will back to the town.");
+    mainTextArea.setText("You are at an intersection. \nIf you go south, you will back to the town.");
     //presents 4 directions the player can choose to explore
     choice1.setText("Go North");
     choice2.setText("Go East");
