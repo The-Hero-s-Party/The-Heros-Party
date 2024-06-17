@@ -1,3 +1,4 @@
+//import functions
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -5,19 +6,16 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-//I'll figure the icon thing out later
-//import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-
+//create main game page
 public class Webpage {
 
-
+//main page functions and texts
     JFrame window;
     Container con;
     JPanel gametitle, startbuttonPanel, mainText, choiceBoard, player;
@@ -32,9 +30,6 @@ public class Webpage {
 
     TitleScreen gameHandler = new TitleScreen();
     choiceHandler choiceHandler = new choiceHandler();
-
-    //I need to cook up an image for the logo
-    //ImageIcon logo = new ImageIcon("");
 
 
     public static void main(String[] args) throws Exception {
@@ -68,11 +63,12 @@ public class Webpage {
             Hero.setForeground(Color.white);
             Hero.setFont(titleFont);
 
-
+            //frame size
             startbuttonPanel = new JPanel();
             startbuttonPanel.setBounds(125,350,100,50);
             startbuttonPanel.setBackground(new Color (86,180,233));
 
+            //start button details
             startButton = new JButton("START");
             startButton.setBackground(new Color (240,228,66));
             startButton.setForeground(Color.black);
@@ -82,7 +78,7 @@ public class Webpage {
 
 
 
-
+            //import button panels
             gametitle.add(Hero);
             startbuttonPanel.add(startButton);
 
@@ -170,6 +166,7 @@ public class Webpage {
         choiceBoard.add(choice4);
 
 
+        //create player info 
         player = new JPanel();
         player.setBounds(2,70,338,60);
         player.setBackground(new Color(0,114,178));
@@ -204,7 +201,7 @@ public class Webpage {
 
 
 
-
+//player starting stats
 public void playerSetup(){
     playerHP = 10;
     monsterHP = 20;
@@ -216,7 +213,7 @@ public void playerSetup(){
     townGate();
 }
 
-
+//screen after start button
 public void townGate(){
     position = "townGate";
     mainTextArea.setText("You are at the gate of the town. \nA guard is standing in front of you. \n\nWhat will you do?");
@@ -254,6 +251,7 @@ public void attackGuard(){
         position = "base";
 
 
+        //game end functions
         mainTextArea.setText("You are dead. \n\n<GAME OVER>");
     
         choice1.setText(">");
@@ -380,6 +378,7 @@ public void monsterAttack(){
 }
 
 
+//different endings 
 public void win(){
     position = "win";
 
@@ -447,7 +446,8 @@ public void ending(){
 
             String playerChoice = event.getActionCommand();
 
-
+            
+            //player choice results 
             switch(position){
             case "townGate":
                 switch(playerChoice){
