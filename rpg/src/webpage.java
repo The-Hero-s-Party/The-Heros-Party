@@ -249,6 +249,22 @@ public void attackGuard(){
     choice2.setText("");
     choice3.setText("");
     choice4.setText("");
+    int dead = 0;
+    if (playerHP <= dead) {
+        position = "base";
+
+
+        mainTextArea.setText("You are dead. \n\n<GAME OVER>");
+    
+        choice1.setText(">");
+        choice2.setText("");
+        choice3.setText("");
+        choice4.setText("");
+        choice1.setVisible(false);
+        choice2.setVisible(false);
+        choice3.setVisible(false);
+        choice4.setVisible(false);
+    }
 }
 
 //leave route
